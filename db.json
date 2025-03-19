@@ -1,3 +1,25 @@
 {
-	"items": []
+	"items": [
+		{
+			"id": "52df",
+			"name": "Speaker",
+			"price": 1000,
+			"category": "JBL",
+			"quantity": 10
+		},
+		{
+			"id": "jgii",
+			"name": "Sneakers",
+			"price": 5000,
+			"category": "Yeezy",
+			"quantity": 5
+		},
+		{
+			"id": "3524",
+			"name": "Samsung",
+			"price": 35000,
+			"category": "TV",
+			"quantity": 29
+		}
+	]
 }
