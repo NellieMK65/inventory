@@ -6,11 +6,27 @@
 		<title>Inventory</title>
 
 		<link rel="stylesheet" href="./css/styles.css" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
 	</head>
-	<body>
+	<body class="container">
 		<h1>Inventory App</h1>
 
-		<form id="item-form">
+		<button
+			type="button"
+			class="btn btn-primary"
+			data-bs-toggle="modal"
+			data-bs-target="#item-form-modal"
+		>
+			Add Item
+		</button>
+
+		<!-- This was our first iteration -->
+		<!-- <form id="item-form">
 			<input type="text" placeholder="Name" name="name" required />
 			<input type="number" placeholder="Price" name="price" required />
 			<input
@@ -20,18 +36,18 @@
 				required
 			/>
 			<input type="text" placeholder="Image" name="image" required />
-			<select name="category" id="" required>
+			<select class="form-select" name="category" id="" required>
 				<option value="">Select category</option>
 				<option value="JBL">JBL</option>
-				<option value="TV" selected>TV</option>
+				<option value="TV">TV</option>
 				<option value="Yeezy">Yeezy</option>
 				<option value="Watch">Watch</option>
 				<option value="Phone">Phone</option>
 			</select>
-			<button type="submit">Add</button>
-		</form>
+			<button type="submit" class="btn btn-primary">Add</button>
+		</form> -->
 
-		<div id="item-list">
+		<div id="item-list" class="mt-5">
 			<!-- <div class="item">
 				<img
 					src="https://grandhub.co.ke/wp-content/uploads/2023/07/JBL-Flip-6-Gray.png"
@@ -43,6 +59,92 @@
 			</div> -->
 		</div>
 
+		<!-- Modal -->
+		<!-- We refactored to use a bootstrap modal -->
+		<div
+			class="modal fade"
+			id="item-form-modal"
+			tabindex="-1"
+			aria-labelledby="item-form-modal"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<form class="modal-content" id="item-form">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="item-form-modal">
+							Add Item
+						</h1>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<input
+							class="form-control mb-3"
+							type="text"
+							placeholder="Name"
+							name="name"
+							required
+						/>
+						<input
+							class="form-control mb-3"
+							type="number"
+							placeholder="Price"
+							name="price"
+							required
+						/>
+						<input
+							class="form-control mb-3"
+							type="quantity"
+							placeholder="Quantity"
+							name="quantity"
+							required
+						/>
+						<input
+							class="form-control mb-3"
+							type="text"
+							placeholder="Image"
+							name="image"
+							required
+						/>
+						<select
+							class="form-select"
+							name="category"
+							id=""
+							required
+						>
+							<option value="">Select category</option>
+							<option value="JBL">JBL</option>
+							<option value="TV">TV</option>
+							<option value="Yeezy">Yeezy</option>
+							<option value="Watch">Watch</option>
+							<option value="Phone">Phone</option>
+						</select>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<button type="submit" class="btn btn-primary">
+							Save changes
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
 		<script src="./src/index.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
 	</body>
 </html>

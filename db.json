@@ -1,76 +1,66 @@
 {
-  "items": [
-    {
-      "id": "52df",
-      "name": "Speaker",
-      "price": 1000,
-      "category": "JBL",
-      "quantity": 10,
-      "image": "https://cdn.thewirecutter.com/wp-content/media/2024/03/computer-speaker-2048px-3550.jpg?auto=webp&quality=75&crop=1.91:1&width=1200"
-    },
-    {
-      "id": "jgii",
-      "name": "Sneakers",
-      "price": 5000,
-      "category": "Yeezy",
-      "quantity": 5,
-      "image": "https://m.media-amazon.com/images/I/71wQhBkg9AL._AC_SL1500_.jpg"
-    },
-    {
-      "id": "3524",
-      "name": "TCL",
-      "price": 35000,
-      "category": "TV",
-      "quantity": 29,
-      "image": "https://tclkenya.co.ke/wp-content/uploads/2024/11/TCL-V6B-50-Inch.jpeg"
-    },
-    {
-      "id": "1826",
-      "name": "Rolex",
-      "price": "400",
-      "quantity": "10",
-      "image": "https://robbreport.com/wp-content/uploads/2020/03/How-Rolex-Became-King-Banner.jpg?w=1024",
-      "category": "Watch"
-    },
-    {
-      "id": "3ffa",
-      "name": "Iphone 16",
-      "price": "200000",
-      "quantity": "5",
-      "image": "https://inspireonline.in/cdn/shop/files/iPhone_16_Teal_PDP_Image_Position_1__en-IN_6aed3712-113a-4579-8a71-41c02aa0003c.jpg?v=1727247732&width=823",
-      "category": "Phone"
-    },
-    {
-      "id": "a8e5",
-      "name": "Samsung S24",
-      "price": "150000",
-      "quantity": "10",
-      "image": "https://www.mobilehub.co.ke/storage/2024/10/Samsung-S24-Ultra-Price-in-Kenya-001-Mobilehub-Kenya.jpg",
-      "category": "Phone"
-    },
-    {
-      "id": "07eb",
-      "name": "JBL Party Box",
-      "price": "80000",
-      "quantity": "100",
-      "image": "./images/jbl-partybox.jpg",
-      "category": "JBL"
-    },
-    {
-      "id": "1644",
-      "name": "Rolex",
-      "price": "3000",
-      "quantity": "100",
-      "image": "https://robbreport.com/wp-content/uploads/2020/03/How-Rolex-Became-King-Banner.jpg?w=1024",
-      "category": "TV"
-    }
-  ],
-  "cars": [
-    {
-      "name": "BMW",
-      "year": 2020,
-      "engine": "v12",
-      "id": "b5b7"
-    }
-  ]
+	"items": [
+		{
+			"id": "52df",
+			"name": "Speaker",
+			"price": 1000,
+			"category": "JBL",
+			"quantity": 10,
+			"image": "https://cdn.thewirecutter.com/wp-content/media/2024/03/computer-speaker-2048px-3550.jpg?auto=webp&quality=75&crop=1.91:1&width=1200",
+			"deleted": false
+		},
+		{
+			"id": "3524",
+			"name": "TCL",
+			"price": 35000,
+			"category": "TV",
+			"quantity": 29,
+			"image": "https://tclkenya.co.ke/wp-content/uploads/2024/11/TCL-V6B-50-Inch.jpeg",
+			"deleted": false
+		},
+		{
+			"id": "3ffa",
+			"name": "Iphone 16",
+			"price": "200000",
+			"quantity": "5",
+			"image": "https://inspireonline.in/cdn/shop/files/iPhone_16_Teal_PDP_Image_Position_1__en-IN_6aed3712-113a-4579-8a71-41c02aa0003c.jpg?v=1727247732&width=823",
+			"category": "Phone",
+			"deleted": true
+		},
+		{
+			"id": "a8e5",
+			"name": "Samsung S24",
+			"price": "150000",
+			"quantity": "10",
+			"image": "https://www.mobilehub.co.ke/storage/2024/10/Samsung-S24-Ultra-Price-in-Kenya-001-Mobilehub-Kenya.jpg",
+			"category": "Phone",
+			"deleted": false
+		},
+		{
+			"id": "07eb",
+			"name": "JBL Party Box",
+			"price": "80000",
+			"quantity": "100",
+			"image": "./images/jbl-partybox.jpg",
+			"category": "JBL",
+			"deleted": false
+		},
+		{
+			"id": "24fc",
+			"name": "Men white sneakers",
+			"price": "5000",
+			"quantity": "20",
+			"image": "https://m.media-amazon.com/images/I/61WHtPa-P+L._AC_SL1500_.jpg",
+			"category": "Yeezy",
+			"deleted": true
+		}
+	],
+	"cars": [
+		{
+			"name": "BMW",
+			"year": 2020,
+			"engine": "v12",
+			"id": "b5b7"
+		}
+	]
 }

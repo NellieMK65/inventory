@@ -15,7 +15,7 @@ function getItems() {
 		},
 	};
 
-	fetch('http://localhost:3000/items', options)
+	fetch('http://localhost:3000/items?deleted=false', options)
 		// the first process when getting response from the server is to convert to JSON
 		// JSON is just a string that JS can automatically convert to objects
 		.then((response) => response.json())
@@ -37,22 +37,26 @@ function renderItems(items) {
 		// 1. create a div element
 		const itemContainer = document.createElement('div');
 		// itemContainer.textContent = item.name;
-		itemContainer.classList.add('item');
+		itemContainer.classList.add('card', 'item');
 
 		const img = document.createElement('img');
+		img.classList.add('card-img-top');
 		img.src = item.image;
 		img.alt = item.name;
 		// img.width = '100%';
-		// img.height = 'auto';
+		img.height = '200';
 		itemContainer.appendChild(img);
 
 		const contentDiv = document.createElement('div');
+		contentDiv.classList.add('card-body');
 
 		const name = document.createElement('h2');
+		name.classList.add('card-title');
 		name.textContent = item.name;
 		contentDiv.appendChild(name);
 
 		const price = document.createElement('p');
+		price.classList.add('card-text');
 		// We can use some built api helpers to format our work better
 		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 		const formattedPrice = new Intl.NumberFormat('en-US', {
@@ -61,6 +65,16 @@ function renderItems(items) {
 		}).format(item.price);
 		price.textContent = formattedPrice;
 		contentDiv.appendChild(price);
+
+		const deleteButton = document.createElement('button');
+		deleteButton.classList.add('btn', 'btn-danger');
+		deleteButton.textContent = 'Delete item';
+		deleteButton.addEventListener('click', () => {
+			console.log(`Item with id ${item.id} clicked`);
+			// call the function with the delete logic
+			deleteItem(item.id);
+		});
+		contentDiv.appendChild(deleteButton);
 
 		itemContainer.appendChild(contentDiv);
 
@@ -100,3 +114,22 @@ itemForm.addEventListener('submit', (e) => {
 		})
 		.catch((err) => console.error(err));
 });
+
+function deleteItem(itemId) {
+	const options = {
+		method: 'DELETE',
+		headers: {
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		},
+	};
+
+	fetch(`http://localhost:3000/items/${itemId}`, options)
+		.then((response) => response.json())
+		.then(() => {
+			// if the delete operation is ok, all we need to do is
+			// refetch the items
+			getItems();
+		})
+		.catch((err) => console.error(err));
+}
