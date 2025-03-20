@@ -66,6 +66,33 @@ function renderItems(items) {
 		price.textContent = formattedPrice;
 		contentDiv.appendChild(price);
 
+		const editButton = document.createElement('button');
+		editButton.classList.add('btn', 'btn-primary', 'mr-5');
+		editButton.textContent = 'Edit';
+		editButton.setAttribute('data-bs-toggle', 'modal');
+		editButton.setAttribute('data-bs-target', '#item-form-modal');
+		editButton.addEventListener('click', () => {
+			// console.log(Object.keys(item));
+			const modalTitle = document.getElementById('item-form-modal-title');
+			modalTitle.textContent = `Edit ${item.name}`;
+
+			Object.keys(item).forEach((key) => {
+				const input = document.querySelector(`input[name="${key}"]`);
+				if (input) {
+					input.value = item[key];
+				}
+
+				if (key === 'category') {
+					const selectInput = document.querySelector(
+						'select[name="category"]'
+					);
+					selectInput.value = item[key];
+				}
+			});
+		});
+
+		contentDiv.appendChild(editButton);
+
 		const deleteButton = document.createElement('button');
 		deleteButton.classList.add('btn', 'btn-danger');
 		deleteButton.textContent = 'Delete item';
@@ -94,9 +121,14 @@ itemForm.addEventListener('submit', (e) => {
 	const formData = new FormData(itemForm);
 	const data = Object.fromEntries(formData);
 
-	// make POST request through fetch
-	fetch('http://localhost:3000/items', {
-		method: 'POST',
+	// make POST/PATCH request through fetch
+	// depending on whether the id is present
+	const url = data.id
+		? `http://localhost:3000/items/${data.id}`
+		: 'http://localhost:3000/items';
+
+	fetch(url, {
+		method: data.id ? 'PATCH' : 'POST',
 		body: JSON.stringify(data),
 		headers: {
 			'Content-Type': 'application/json',
@@ -133,3 +165,14 @@ function deleteItem(itemId) {
 		})
 		.catch((err) => console.error(err));
 }
+
+const myModalEl = document.getElementById('item-form-modal');
+myModalEl.addEventListener('hidden.bs.modal', (event) => {
+	// do something...
+	// reset title
+	const modalTitle = document.getElementById('item-form-modal-title');
+	modalTitle.textContent = `Add item`;
+
+	// reset the form
+	itemForm.reset();
+});
